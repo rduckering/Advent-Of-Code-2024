@@ -64,10 +64,10 @@ pub mod day_2
             let v = line.split_terminator(" ");
 
             for val in v {
-                codes.push(val.parse::<i32>().unwrap());
+                codes.push (val.parse::<i32>().unwrap());
             }
 
-            vec.push(codes);
+            vec.push (codes);
         }
 
         vec
@@ -107,8 +107,7 @@ pub mod day_2
     {
         // rules: all increasing/decreasing
         // rules: at least one at most three
-        if sequence_is_safe (sequence)
-        {
+        if sequence_is_safe (sequence) {
             return true;
         }
 

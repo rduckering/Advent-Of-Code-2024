@@ -47,13 +47,12 @@ pub mod day_1
     {
         let file_path = Path::new(filename);
 
-        if file_path.exists() == false
-        {
-            panic!("File does not exist");
+        if file_path.exists() == false {
+            panic! ("File does not exist");
         }
 
         let contents = fs::read_to_string(file_path)
-            .expect("Should have been able to read the file");
+            .expect ("Should have been able to read the file");
 
         contents
     }
@@ -66,18 +65,17 @@ pub mod day_1
 
         for line in lines
         {
-            let v = line.split_terminator("   ");
+            let v = line.split_terminator ("   ");
 
-            for val in v
-            {
-                vec.push(val.parse::<i32>().unwrap());
+            for val in v {
+                vec.push (val.parse::<i32>().unwrap());
             }
         }
 
         vec
     }
 
-    fn find_differences(location_nums_1: &Vec<i32>, location_nums_2: &Vec<i32>) -> Vec<i32>
+    fn find_differences (location_nums_1: &Vec<i32>, location_nums_2: &Vec<i32>) -> Vec<i32>
     {
         let mut count: i32 = 0;
         let mut diffs : Vec<i32> = Vec::new();
@@ -113,7 +111,7 @@ pub mod day_1
                 }
             }
 
-            if let Some (value) = map.get_mut(number_to_find)  {
+            if let Some (value) = map.get_mut (number_to_find)  {
                 *value += count;
             }
             else {
@@ -125,7 +123,7 @@ pub mod day_1
 
         for item in location_nums_1
         {
-            if let Some(&value) = map.get(item)
+            if let Some (&value) = map.get (item)
             {
                 let multiply = *item as u32 * value;
                 new_list.push (multiply);
@@ -169,11 +167,11 @@ pub mod day_1
         list1.sort();
         list2.sort();
 
-        // part 1 = 1879048
+        // part 1
         let diffs = find_differences(&list1, &list2);
         let _sum = diffs.iter().sum::<i32>();
 
-        // part2 - 21024792
+        // part2
         let sim = find_similarity(&list1, &list2);
         let _sim_val = sim.iter().sum::<u32>();
         println!("The similarity between list1 and list2 is: {}", sim.iter().sum::<u32>());
