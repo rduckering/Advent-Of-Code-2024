@@ -107,6 +107,7 @@ pub mod day_2
     {
         // rules: all increasing/decreasing
         // rules: at least one at most three
+        // rules: can remove one index and be safe
         if sequence_is_safe (sequence) {
             return true;
         }

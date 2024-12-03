@@ -1,4 +1,4 @@
-pub mod day_x
+pub mod day_3
 {
     use crate::utils::utils;
 
@@ -8,7 +8,7 @@ pub mod day_x
 
     }
 
-    pub fn _do_task()
+    pub fn do_task()
     {
         let _contents = utils::read_file("/Users/reubenduckering/RustroverProjects/AdventOfCode/files/day_3_codes.txt");
 
