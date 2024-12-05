@@ -70,18 +70,18 @@ pub mod day_5
     fn check_obey_rules (pages: &Vec<i32>, rules: &Vec<(i32,i32)>) -> bool {
 
         for rule in rules {
-            let mut index_0 = -1;
-            let mut index_1 = -1;
+            let mut index_0: Option<usize> = None;
+            let mut index_1: Option<usize> = None;
 
             if let Some(index) = pages.iter().position(|&x| x == rule.0) {
-                index_0 = index as i32;
+                index_0 = Some (index);
             }
 
             if let Some(index) = pages.iter().position(|&x| x == rule.1) {
-                index_1 = index as i32;
+                index_1 = Some (index);
             }
 
-            if index_0 == -1 || index_1 == -1 {
+            if index_0.is_none() || index_1.is_none() {
                 panic!("this shouldn't happen");
             }
 
@@ -95,25 +95,25 @@ pub mod day_5
 
     fn correct_pages (pages: &mut Vec<i32>, rules: &Vec<(i32,i32)>) {
         for rule in rules {
-            let mut index_0 = -1;
-            let mut index_1 = -1;
+            let mut index_0: Option<usize> = None;
+            let mut index_1: Option<usize> = None;
 
             if let Some(index) = pages.iter().position(|&x| x == rule.0) {
-                index_0 = index as i32;
+                index_0 = Some (index);
             }
 
             if let Some(index) = pages.iter().position(|&x| x == rule.1) {
-                index_1 = index as i32;
+                index_1 = Some (index);
             }
 
-            if index_0 == -1 || index_1 == -1 {
+            if index_0.is_none() || index_1.is_none() {
                 panic!("this shouldn't happen");
             }
 
             if index_0 > index_1 {
-                let hold = pages[index_0 as usize];
-                pages.remove (index_0 as usize);
-                pages.insert (index_1 as usize, hold);
+                let hold = pages[index_0.unwrap()];
+                pages.remove (index_0.unwrap());
+                pages.insert (index_1.unwrap(), hold);
             }
         }
     }
