@@ -162,7 +162,7 @@ pub mod day_3
         vec
     }
 
-    pub fn do_task()
+    pub fn _do_task()
     {
         let contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_3.txt");
         let results_array = parse_content (&contents);
