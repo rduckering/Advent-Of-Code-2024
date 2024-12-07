@@ -147,7 +147,7 @@ pub mod day_5
         (correct_order_sum, incorrect_order_sum)
     }
 
-    pub fn do_task()
+    pub fn _do_task()
     {
         let contents_rules = utils::read_file ("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_5_pairs.txt");
         let contents_pages = utils::read_file ("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_5_pages.txt");
