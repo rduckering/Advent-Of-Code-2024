@@ -423,7 +423,7 @@ pub mod day_6
         }
     }
 
-    pub fn do_task()
+    pub fn _do_task()
     {
         let contents = utils::read_file ("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_6.txt");
         let mut _content_vec: Vec<char> = contents.chars().collect();
