@@ -58,18 +58,10 @@ pub mod day_8
     }
 
     fn lines_between (contents: &str, index_0: usize, index_1: usize) -> usize {
-        let mut line_ends = 0;
-
         let start = if index_0 < index_1 { index_0 } else { index_1 };
         let end = if index_0 < index_1 { index_1 } else { index_0 };
 
-        for i in start..end {
-            if let Some (c) = contents.chars().nth(i) {
-                if c == '\n' { line_ends += 1; }
-            }
-        }
-
-        line_ends
+        contents[start..end].chars().filter(|c| *c == '\n').count()
     }
 
     fn validate_location (contents: &str, index_0: usize, index_1: usize, orig_line_difference: usize) -> bool {
@@ -130,8 +122,6 @@ pub mod day_8
 
                         content_as_chars[new_location] = '#';
                     }
-
-                    // print_vec (&content_as_chars);
                 }
             }
         }
@@ -229,6 +219,7 @@ pub mod day_8
             }
         }
 
+        print_vec (&content_as_chars);
         content_as_chars.iter().filter (|&c| *c != '.' && *c != '\n').count() as i32
     }
 
