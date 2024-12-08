@@ -111,11 +111,8 @@ pub mod day_8
                     let new_location = new_location_i32 as usize;
 
                     // validate new location
-                    if validate_location (&contents, f_0, new_location, line_difference) {
-                        if content_as_chars[new_location] == '\n' {
-                            continue;
-                        }
-
+                    if content_as_chars[new_location] != '\n' && validate_location (&contents, f_0, new_location, line_difference)
+                    {
                         if content_as_chars[new_location] != '#' {
                             valid_count += 1;
                         }
@@ -135,14 +132,16 @@ pub mod day_8
 
         let mut content_as_chars = contents.chars().collect::<Vec<char>>();
 
-        for char in contents.chars() {
+        for char in contents.chars()
+        {
             if char != '\n' && char != '.' {
                 frequencys.insert (char);
             }
         }
 
         // process each frequnecy differently
-        for f in &frequencys {
+        for f in &frequencys
+        {
             let f_indexs = find_indices_with_char (&contents, *f);
 
             // compare each frequency point with all other. check line spacing
@@ -170,11 +169,8 @@ pub mod day_8
                         let new_location = new_location_i32 as usize;
 
                         // validate new location
-                        if validate_location(&contents, placement_index, new_location, line_difference) {
-                            if content_as_chars[new_location] == '\n' {
-                                break;
-                            }
-
+                        if content_as_chars[new_location] != '\n' && validate_location(&contents, placement_index, new_location, line_difference)
+                        {
                             content_as_chars[placement_index] = '#';
                             content_as_chars[new_location] = '#';
                         }
@@ -200,11 +196,8 @@ pub mod day_8
                         let new_location = new_location_i32 as usize;
 
                         // validate new location
-                        if validate_location(&contents, placement_index, new_location, line_difference) {
-                            if content_as_chars[new_location] == '\n' {
-                                break;
-                            }
-
+                        if content_as_chars[new_location] != '\n' && validate_location(&contents, placement_index, new_location, line_difference)
+                        {
                             content_as_chars[placement_index] = '#';
                             content_as_chars[new_location] = '#';
                         }
