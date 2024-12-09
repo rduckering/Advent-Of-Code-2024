@@ -225,7 +225,7 @@ pub mod day_8
         println!();
     }
 
-    pub fn do_task()
+    pub fn _do_task()
     {
         // let mut contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_8_mini.txt");
         let mut contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_8.txt");
