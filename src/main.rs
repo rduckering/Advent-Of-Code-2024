@@ -19,6 +19,7 @@ fn main() {
     // day_4::day_4::do_task();
     // day_5::day_5::do_task();
     // day_6::day_6::do_task();
+    // day_7::day_7::do_task();
     // day_8::day_8::do_task();
     // day_9::day_9::do_task();
     day_10::day_10::do_task();

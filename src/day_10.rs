@@ -13,7 +13,7 @@ pub mod day_10
         {
             let result = "01\n12";
             let mut points: Vec<PointInfo> = Vec::new();
-            convert_to_map_points(&result, &mut points);
+            convert_to_map_points (&result, &mut points);
 
             assert_eq!(4, points.len());
             assert_eq!(points[0].position.row, 0);
@@ -36,7 +36,7 @@ pub mod day_10
         {
             let result = "0123\n1287\n9873";
             let mut points: Vec<PointInfo> = Vec::new();
-            convert_to_map_points(&result, &mut points);
+            convert_to_map_points (&result, &mut points);
             let map_info = get_map_info (&points);
 
             assert_eq!(map_info.max_rows, 3);
@@ -47,7 +47,7 @@ pub mod day_10
         fn test_map_surrounding_points() {
             let result = "0123\n1287";
             let mut points: Vec<PointInfo> = Vec::new();
-            convert_to_map_points(&result, &mut points);
+            convert_to_map_points (&result, &mut points);
             let mut map_info = get_map_info (&points);
             map_surrounding_points (&mut points, &mut map_info);
 
@@ -74,11 +74,11 @@ pub mod day_10
                                 2229";
 
             let mut points: Vec<PointInfo> = Vec::new();
-            convert_to_map_points(&result, &mut points);
+            convert_to_map_points (&result, &mut points);
             let mut map_info = get_map_info (&points);
             map_surrounding_points (&mut points, &mut map_info);
-            let paths = find_different_paths(&points, &map_info);
-            assert_eq!(paths, 1);
+            let paths = find_different_paths (&points, &map_info);
+            assert_eq!(paths, (1,1));
         }
 
         #[test]
@@ -91,11 +91,11 @@ pub mod day_10
                                 2229";
 
             let mut points: Vec<PointInfo> = Vec::new();
-            convert_to_map_points(&result, &mut points);
+            convert_to_map_points (&result, &mut points);
             let mut map_info = get_map_info (&points);
             map_surrounding_points (&mut points, &mut map_info);
-            let paths = find_different_paths(&points, &map_info);
-            assert_eq!(paths, 2);
+            let paths = find_different_paths (&points, &map_info);
+            assert_eq!(paths, (2,2));
         }
 
         #[test]
@@ -112,7 +112,7 @@ pub mod day_10
             let mut map_info = get_map_info (&points);
             map_surrounding_points (&mut points, &mut map_info);
             let paths = find_different_paths(&points, &map_info);
-            assert_eq!(paths, 2);
+            assert_eq!(paths, (2,1));
         }
     }
 
@@ -145,9 +145,10 @@ pub mod day_10
 
         let mut id = 0;
 
-        for line in content.lines() {
-            for c in line.chars() {
-
+        for line in content.lines()
+        {
+            for c in line.chars()
+            {
                 let level = c as i32 - '0' as i32;
 
                 points.push (PointInfo { position: Point { row, col },
@@ -167,7 +168,7 @@ pub mod day_10
 
     fn get_point_info (points: &mut Vec<PointInfo>, point: Point) ->  Option<&mut PointInfo> {
 
-        for mut p in points {
+        for p in points {
             if p.position == point {
                 return Some (p);
             }
@@ -189,11 +190,12 @@ pub mod day_10
 
     fn map_surrounding_points (points: &mut Vec<PointInfo>, map_info: &mut MapInfo) {
 
-        for row in 0..map_info.max_rows {
-            for col in 0..map_info.max_cols {
-
+        for row in 0..map_info.max_rows
+        {
+            for col in 0..map_info.max_cols
+            {
                 let mut linked_nodes = Vec::new();
-                let mut current_level = 0;
+                let current_level;
 
                 if let Some (current_p) = get_point_info (points, Point {row, col}) {
                     current_level = current_p.level;
@@ -205,8 +207,10 @@ pub mod day_10
                 // check surrounding points
                 let up = row as i32 - 1;
 
-                if up >= 0 {
-                    if let Some (up_p) = get_point_info (points, Point {row: up as usize, col }) {
+                if up >= 0
+                {
+                    if let Some (up_p) = get_point_info (points, Point {row: up as usize, col })
+                    {
                         if up_p.level == current_level + 1 {
                             linked_nodes.push (up_p.position.clone());
                         }
@@ -215,8 +219,10 @@ pub mod day_10
 
                 let down = row as i32 + 1;
 
-                if down >= 0 {
-                    if let Some (down_p) = get_point_info(points, Point {row: down as usize, col}) {
+                if down >= 0
+                {
+                    if let Some (down_p) = get_point_info(points, Point {row: down as usize, col})
+                    {
                         if down_p.level == current_level + 1 {
                             linked_nodes.push (down_p.position.clone());
                         }
@@ -225,8 +231,10 @@ pub mod day_10
 
                 let left = col as i32 - 1;
 
-                if left >= 0 {
-                    if let Some (left_p) = get_point_info(points, Point {row, col: left as usize }) {
+                if left >= 0
+                {
+                    if let Some (left_p) = get_point_info(points, Point {row, col: left as usize })
+                    {
                         if left_p.level == current_level + 1 {
                             linked_nodes.push (left_p.position.clone());
                         }
@@ -235,19 +243,22 @@ pub mod day_10
 
                 let right = col as i32 + 1;
 
-                if right >= 0 {
-                    if let Some (right_p) = get_point_info(points, Point {row, col: right as usize }) {
+                if right >= 0
+                {
+                    if let Some (right_p) = get_point_info(points, Point {row, col: right as usize })
+                    {
                         if right_p.level == current_level + 1 {
                             linked_nodes.push (right_p.position.clone());
                         }
                     }
                 }
 
-                if let Some (current_p) = get_point_info (points, Point {row, col}) {
-
+                if let Some (current_p) = get_point_info (points, Point {row, col})
+                {
                     current_p.linked_nodes.append (&mut linked_nodes);
 
-                    if current_p.level == 0 && current_p.linked_nodes.len() > 0 {
+                    if current_p.level == 0 && current_p.linked_nodes.len() > 0
+                    {
                         current_p.trail_head = true;
                         map_info.trail_heads.push (current_p.position.clone());
                     }
@@ -261,13 +272,10 @@ pub mod day_10
 
     fn get_map_info (points: &Vec<PointInfo>) -> MapInfo {
 
-        let mut max_rows: usize = 0;
-        let mut max_cols: usize = 0;
-
-        for i in 0..points.len() {
-            max_rows = if points[i].position.row > max_rows { points[i].position.row } else { max_rows };
-            max_cols = if points[i].position.col > max_cols { points[i].position.col } else { max_cols };
-        }
+        let (mut max_rows, mut max_cols) = points.iter().fold((0,0), |(max_r, max_c), p| { (
+            max_r.max (p.position.row),
+            max_c.max (p.position.col)
+        ) });
 
         max_rows += 1;
         max_cols += 1;
@@ -280,7 +288,8 @@ pub mod day_10
         let mut sum: Vec<i32> = Vec::new();
         let mut unique_sum: Vec<i32> = Vec::new();
 
-        for trail_head in map_info.trail_heads.iter() {
+        for trail_head in map_info.trail_heads.iter()
+        {
             let mut queue: VecDeque <Point> = VecDeque::new();
             let mut paths = 0;
             let mut unique_trail_ends: HashSet<i32> = HashSet::new();
@@ -289,16 +298,18 @@ pub mod day_10
 
             loop
             {
-                if let Some (p) = queue.front() {
+                if let Some (p) = queue.front()
+                {
                     if let Some (p_info) = get_point_info_copy (points, &p)
                     {
-                        if p_info.level == 9 {
+                        if p_info.level == 9
+                        {
                             paths += 1;
                             unique_trail_ends.insert(p_info.unique_id);
                         }
 
-                        if p_info.linked_nodes.len() > 0 {
-
+                        if p_info.linked_nodes.len() > 0
+                        {
                             for node in p_info.linked_nodes {
                                 queue.push_back(node);
                             }
@@ -308,7 +319,8 @@ pub mod day_10
                     queue.pop_front();
                 }
 
-                if queue.len() == 0 {
+                if queue.len() == 0
+                {
                     sum.push (paths);
                     unique_sum.push (unique_trail_ends.len() as i32);
                     break;
@@ -321,12 +333,12 @@ pub mod day_10
 
     pub fn do_task()
     {
-        let contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_10.txt");
+        let contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_10_mini1.txt");
         let mut points: Vec<PointInfo> = Vec::new();
         convert_to_map_points (&contents, &mut points);
         let mut map_info = get_map_info (&points);
         map_surrounding_points (&mut points, &mut map_info);
         let paths = find_different_paths(&points, &map_info);
-        println!("{}", "paths");
+        println!("Paths varients: {} - Unique path ends: {}", paths.0, paths.1);
     }
 }
