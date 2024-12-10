@@ -530,7 +530,7 @@ pub mod day_9
         sum_values (&result_array)
     }
 
-    pub fn do_task()
+    pub fn _do_task()
     {
         let mut contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_9.txt");
 
