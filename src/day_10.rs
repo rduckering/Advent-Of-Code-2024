@@ -3,6 +3,7 @@ pub mod day_10
     use crate::utils::utils;
     use std::collections::VecDeque;
     use std::collections::HashSet;
+    use std::time::Instant;
 
     #[cfg(test)]
     mod tests {
@@ -333,12 +334,17 @@ pub mod day_10
 
     pub fn do_task()
     {
-        let contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_10_mini1.txt");
+        let start = Instant::now();
+
+        let contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_10.txt");
         let mut points: Vec<PointInfo> = Vec::new();
         convert_to_map_points (&contents, &mut points);
         let mut map_info = get_map_info (&points);
         map_surrounding_points (&mut points, &mut map_info);
         let paths = find_different_paths(&points, &map_info);
+
+        let duration = start.elapsed();
+        println!("Time elapsed: {:?}", duration);
         println!("Paths varients: {} - Unique path ends: {}", paths.0, paths.1);
     }
 }

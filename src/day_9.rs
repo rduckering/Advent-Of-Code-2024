@@ -1,5 +1,6 @@
 pub mod day_9
 {
+    use std::time::Instant;
     use crate::utils::utils;
 
     #[cfg(test)]
@@ -532,9 +533,13 @@ pub mod day_9
 
     pub fn _do_task()
     {
-        let mut contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_9.txt");
+        let start = Instant::now();
 
+        let mut contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_9.txt");
         let result = process_v2 (&mut contents);
+
+        let duration = start.elapsed();
+        println!("Time elapsed: {:?}", duration);
         println!("{}", result);
         // 6321541228194
         // 6385949478862 wrong
