@@ -7,7 +7,6 @@ pub mod day_11
     #[cfg(test)]
     mod tests {
         use super::*;
-        use std::collections::HashMap;
 
         #[test]
         fn test_is_even_number()
@@ -118,8 +117,8 @@ pub mod day_11
         fn test_generate_new_list()
         {
             // 0 1 10 99 999
-            let mut val_1 = 1;
-            let mut val_2 = 2024;
+            let val_1 = 1;
+            let val_2 = 2024;
 
             let list = get_new_list(val_1);
             let list2 = get_new_list(val_2);
@@ -174,7 +173,7 @@ pub mod day_11
     }
 
     fn discard_leading_zeros (number: &mut String) {
-        let mut index = 0;
+        let index = 0;
 
         loop
         {
@@ -195,9 +194,7 @@ pub mod day_11
 
     fn process_stones (content: &mut Vec<String>, num_time_to_process: i32) {
 
-        let mut holding : Vec<Vec<String>> = Vec::new();
-
-        for loop_cnt in 0..num_time_to_process {
+        for _loop_cnt in 0..num_time_to_process {
             let mut index = 0;
             loop // i in 0..content.len()
             {
@@ -230,8 +227,8 @@ pub mod day_11
 
                 if index >= content.len() { break; }
             }
-            _print_vec (content);
-            println!("blinks: {}", loop_cnt);
+            // _print_vec (content);
+            // println!("blinks: {}", loop_cnt);
         }
     }
 
@@ -307,7 +304,6 @@ pub mod day_11
         let mut map : HashMap<u64,HashMap<u64,u64>> = HashMap::new();
 
         for i in content {
-            println! ("starting char {}", i);
             let number = i.parse::<u64>().unwrap();
             count += recursive_count (number, num_time_to_process, &mut map);
         }
