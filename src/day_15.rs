@@ -1,11 +1,9 @@
-use std::collections::HashSet;
-
 pub mod day_15
 {
     use crate::utils::utils;
     use std::ops::Add;
-    use std::collections::HashSet;
     use std::cmp::Reverse;
+    use std::collections::HashSet;
 
     #[cfg(test)]
     mod tests {
@@ -23,8 +21,8 @@ pub mod day_15
             let movement = Movement{ x: 0, y:1 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points (&content, &mut cells, &mut robot);
-            draw_map (&map_info, &robot, &cells);
+            let _map_info = convert_to_map_points (&content, &mut cells, &mut robot);
+            // draw_map (&map_info, &robot, &cells);
             move_robot (&mut robot, &movement, &mut cells);
 
             assert_eq!(robot.current_position, Point { x: 3, y: 3 });
@@ -43,7 +41,7 @@ pub mod day_15
             let movement = Movement{ x: 0, y:1 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points (&content, &mut cells, &mut robot);
             move_robot (&mut robot, &movement, &mut cells);
 
             assert_eq!(robot.current_position, Point { x: 3, y: 2 });
@@ -61,7 +59,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points (&content, &mut cells, &mut robot);
 
             {
                 let movement = Movement { x: 0, y: 1 };
@@ -96,7 +94,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points (&content, &mut cells, &mut robot);
 
             {
                 let movement = Movement { x: 1, y: 0 };
@@ -120,7 +118,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
             // draw_map (&map_info, &robot, &cells);
         }
 
@@ -135,7 +133,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement = Movement { x: 0, y: 1 };
@@ -149,14 +147,14 @@ pub mod day_15
             {
                 let movement = Movement { x: 1, y: 0 };
 
-                draw_map (&map_info, &robot, &cells);
+                // draw_map (&map_info, &robot, &cells);
 
                 assert_eq!(cells[36].obstacle, '[');
                 assert_eq!(cells[38].obstacle, '.');
 
                 move_robot(&mut robot, &movement, &mut cells);
                 move_robot(&mut robot, &movement, &mut cells); //  move twice
-                draw_map (&map_info, &robot, &cells);
+                // draw_map (&map_info, &robot, &cells);
 
                 assert_eq!(robot.current_position, Point { x: 8, y: 2 });
                 assert_eq!(cells[36].obstacle, '.');
@@ -177,7 +175,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_right = Movement { x: 1, y: 0 };
@@ -216,7 +214,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_right = Movement { x: 1, y: 0 };
@@ -256,7 +254,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_right = Movement { x: 1, y: 0 };
@@ -298,7 +296,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_left = Movement { x: -1, y: 0 };
@@ -330,7 +328,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_down = Movement { x: 0, y: 1 };
@@ -360,7 +358,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_down = Movement { x: 0, y: 1 };
@@ -396,7 +394,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_down = Movement { x: 0, y: 1 };
@@ -430,7 +428,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_down = Movement { x: 0, y: 1 };
@@ -440,11 +438,11 @@ pub mod day_15
                 cells[61].obstacle = '[';
                 cells[62].obstacle = ']';
 
-                draw_map (&map_info, &robot, &cells);
+                // draw_map (&map_info, &robot, &cells);
 
                 move_robot_v2(&mut robot, &movement_down, &mut cells);
 
-                draw_map (&map_info, &robot, &cells);
+                // draw_map (&map_info, &robot, &cells);
 
                 assert_eq!(robot.current_position, Point { x: 6, y: 2 });
                 assert_eq!(cells[48].obstacle, '[');
@@ -465,7 +463,7 @@ pub mod day_15
             let mut robot = Robot { current_position: Point { x: 0, y:0 }, starting_position: Point {x: 0, y: 0 }, id: 0 };
             let mut cells: Vec<Cell> = Vec::new();
 
-            let map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
+            let _map_info = convert_to_map_points_v2 (&content, &mut cells, &mut robot);
 
             {
                 let movement_down = Movement { x: 0, y: 1 };
@@ -480,11 +478,11 @@ pub mod day_15
                 // cells[63].obstacle = '[';
                 // cells[64].obstacle = ']';
 
-                draw_map (&map_info, &robot, &cells);
+                // draw_map (&map_info, &robot, &cells);
 
                 move_robot_v2(&mut robot, &movement_down, &mut cells);
 
-                draw_map (&map_info, &robot, &cells);
+                // draw_map (&map_info, &robot, &cells);
 
                 assert_eq!(robot.current_position, Point { x: 6, y: 2 });
                 assert_eq!(cells[75].obstacle, '[');
@@ -522,6 +520,7 @@ pub mod day_15
         id: u32,
     }
 
+    #[allow(dead_code)]
     struct MapInfo {
         max_rows: usize,
         max_cols: usize,
@@ -629,10 +628,6 @@ pub mod day_15
         None
     }
 
-    fn get_map_point_from_index (index: usize, cells: Vec<Cell>) -> Option<Cell> {
-        Some (cells[index].clone())
-    }
-
     fn get_cell_at_sides (cell_to_move: Cell, cells: &Vec<Cell>) -> (Cell, Cell) {
         let cell_left = cell_to_move.position.clone() + Point {x: -1, y:0 };
         let cell_right = cell_to_move.position.clone() + Point {x: 1, y:0 };
@@ -697,14 +692,14 @@ pub mod day_15
                 if movement.y != 0 {
                     if valid_point.obstacle == '[' {
                         let cell_right = &cells[valid_point_index + 1];
-                        let mut obstacle_moves_2: Vec<(Cell, bool)> = move_obstacle_v2(cell_right, movement.clone(), cells);
+                        let obstacle_moves_2: Vec<(Cell, bool)> = move_obstacle_v2(cell_right, movement.clone(), cells);
                         obstacle_moves.clear();
                         obstacle_moves.append(&mut obstacle_moves_2.clone());
                     }
 
                     if valid_point.obstacle == ']' {
                         let cell_left = &cells[valid_point_index - 1];
-                        let mut obstacle_moves_2: Vec<(Cell, bool)> = move_obstacle_v2(cell_left, movement.clone(), cells);
+                        let obstacle_moves_2: Vec<(Cell, bool)> = move_obstacle_v2(cell_left, movement.clone(), cells);
                         obstacle_moves.clear();
                         obstacle_moves.append(&mut obstacle_moves_2.clone());
                     }
@@ -907,7 +902,7 @@ pub mod day_15
 
             if (current_icon == '[' || current_icon == ']') && movement.y != 0
             {
-                let mut move_orders = recursive_movement (movement.clone(), valid_point.clone(), cells.clone());
+                let move_orders = recursive_movement (movement.clone(), valid_point.clone(), cells.clone());
                 print!("got move orders");
 
                 let any_fails = if move_orders.iter().any(|order| !order.allow_move) {true} else {false};
@@ -926,7 +921,7 @@ pub mod day_15
                 }
 
                 for order in unique_moves.iter().rev() {
-                    if (order.location == order.target) {
+                    if order.location == order.target {
                         continue;
                     }
 
@@ -958,7 +953,6 @@ pub mod day_15
                 obstacle_moves.insert (0,(valid_point.clone(), true));
 
                 for i in (1..obstacle_moves.len()).rev() {
-                    let icon = obstacle_moves[i - 1].0.obstacle;
 
                     if obstacle_moves[i].1 == false {
                         move_everything = false;
@@ -986,24 +980,17 @@ pub mod day_15
         }
     }
 
-    fn process_robot_orders (robot: &mut Robot, cells: &mut Vec<Cell>, moves: &Vec<Movement>, map_info: &MapInfo) {
-        draw_map (&map_info, robot, cells);
-
-        let mut cnt = 0;
+    fn process_robot_orders (robot: &mut Robot, cells: &mut Vec<Cell>, moves: &Vec<Movement>, _map_info: &MapInfo) {
+        // draw_map (&map_info, robot, cells);
 
         for m in moves.iter() {
             move_robot_v2 (robot, m, cells);
-
-            // draw map
-            // if cnt > 7363 {
-            //     draw_map(&map_info, robot, cells);
-            // }
-            cnt += 1;
         }
-        draw_map (&map_info, robot, cells);
+
+        // draw_map (&map_info, robot, cells);
     }
 
-    fn draw_map (map_size: &MapInfo, robot: &Robot, cells: &Vec<Cell>) {
+    fn _draw_map (map_size: &MapInfo, robot: &Robot, cells: &Vec<Cell>) {
         let mut map: String = String::from("");
 
         // place map
@@ -1031,7 +1018,7 @@ pub mod day_15
         println!("{}", map);
     }
 
-    fn sum_all_boxes (cells: &Vec<Cell>) ->u64 {
+    fn _sum_all_boxes (cells: &Vec<Cell>) ->u64 {
 
         let mut sum: u64 = 0;
 
@@ -1116,24 +1103,24 @@ pub mod day_15
             {
                 let moves = move_obstacle_v2 (valid_point, movement.clone(), cells);
 
-                let mut box_can_move = false;
+                let mut _box_can_move = false;
 
                 if valid_point.obstacle == '[' && (movement.y == 1 || movement.y == -1) {
                     let valid_point_right = &cells[valid_point_index + 1];
                     let move_right_bracket = move_obstacle (valid_point_right, movement.clone(), cells);
-                    box_can_move = move_right_bracket[0].1;
+                    _box_can_move = move_right_bracket[0].1;
                 }
                 else if valid_point.obstacle == ']' && (movement.y == 1 || movement.y == -1) {
                     let valid_point_left = &cells[valid_point_index - 1];
                     let move_left_bracket = move_obstacle (valid_point_left, movement.clone(), cells);
-                    box_can_move = move_left_bracket[0].1;
+                    _box_can_move = move_left_bracket[0].1;
                 }
                 else
                 {
-                    box_can_move = true;
+                    _box_can_move = true;
                 }
 
-                mark_to_move.push ((valid_point.clone(), box_can_move));
+                mark_to_move.push ((valid_point.clone(), _box_can_move));
                 mark_to_move.append(&mut moves.clone());
             }
             else
@@ -1160,7 +1147,6 @@ pub mod day_15
 
         sum
     }
-
 
     // this ones a mess! two me too long, I'm moving on!
     pub fn do_task()
