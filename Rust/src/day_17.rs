@@ -401,9 +401,11 @@ pub mod day_17
         println! ("register a value: {:?}", reg_value);
     }
 
+
+    // Part 2 not complete, may not run without error
     pub fn do_task()
     {
-        let contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_17.txt");
+        let contents = utils::read_file("/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_17_mini.txt");
         let mut instructions = parse_input (&contents);
 
         let instruction_pairs: Vec<(u32, u32)> = instructions.opcodes
@@ -412,8 +414,6 @@ pub mod day_17
                                 .zip(instructions.opcodes.iter().skip(1).step_by(2))
                                 .map(|(&a, &b)| (a, b))
                                 .collect();
-
-
 
         process_instructions (&instruction_pairs, &mut instructions);
 
