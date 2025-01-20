@@ -35,6 +35,6 @@ fn main() {
     // day_13::day_13::do_task();
     // day_14::day_14::do_task();
     // day_15::day_15::do_task();
-    // day_16::day_16::do_task();
-    day_17::day_17::do_task();
+    day_16::day_16::do_task();
+    // day_17::day_17::do_task();
 }
