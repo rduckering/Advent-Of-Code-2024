@@ -2,3 +2,5 @@
 Target
 Cargo.lock
 Cargo.toml
+Cpp/cmake-build-debug
+*.pyc
