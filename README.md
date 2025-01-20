@@ -4,6 +4,8 @@ I originally wrote this code in Rust as a challange to learn a new language. Day
 
 I'm currently working on writing python and c++ versions for some of the solutions.
 
+All these configuration are for MAC/UNIX.
+
 ## Running the projects
 
 ### Rust
