@@ -11,7 +11,7 @@ Day2::Day2()
 {
     printf ("Day 2\n");
 
-    std::filesystem::path contentPath = "/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/cpp/files/day_2.txt";
+    std::filesystem::path contentPath = "/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_2.txt";
     const auto lines = Utils::getContentLines (contentPath);
 
     for (const auto& line : lines)

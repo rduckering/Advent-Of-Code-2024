@@ -18,5 +18,5 @@ private:
 
     std::vector<std::string> validInstructions;
 
-    static std::vector<std::string> processInput (const std::vector<std::string>& contentLines);
+    static void processInput (const std::vector<std::string>& contentLines, std::vector<std::string>& instructions);
 };
