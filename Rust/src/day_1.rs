@@ -156,7 +156,7 @@ pub mod day_1
 
     pub fn do_task_1()
     {
-        let contents = read_file ("/Users/reubenduckering/RustroverProjects/AdventOfCode/files/locations.txt");
+        let contents = read_file ("/Users/reubenduckering/RustroverProjects/AdventOfCode/files/day_1.txt");
         let location_num_array = parse_locations (contents.as_str());
 
         let mut list1: Vec<i32> = Vec::new();

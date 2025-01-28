@@ -159,7 +159,7 @@ pub mod day_2
 
     pub fn do_task()
     {
-        let contents = utils::read_file("/Users/reubenduckering/RustroverProjects/AdventOfCode/files/day_2_codes.txt");
+        let contents = utils::read_file("/Users/reubenduckering/RustroverProjects/AdventOfCode/files/day_2.txt");
         let codes= parse_codes (&contents.as_str());
         let _safe_codes = check_codes (&codes);
         let _more_safe_codes = complex_check_codes (&codes);

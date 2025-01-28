@@ -3,7 +3,7 @@ import numpy as np
 
 class Day1:
     def __init__(self):
-        self.file_contents = utils.read_file ("./files/day_1.txt")
+        self.file_contents = utils.read_file ("../files/day_1.txt")
         self.left_numbers = []
         self.right_numbers = []
 

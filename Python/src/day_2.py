@@ -2,7 +2,7 @@ from src import utils
 
 class Day2:
     def __init__(self):
-        self.file_contents = utils.read_file ("./files/day_2.txt")
+        self.file_contents = utils.read_file ("../files/day_2.txt")
         self.levels = self.parse_content (self.file_contents)
 
     @staticmethod

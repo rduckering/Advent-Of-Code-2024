@@ -35,7 +35,7 @@ void Day3::runPart1()
         }
     }
 
-    printf("Sum: %i\n", sum);
+    printf ("Sum: %i\n", sum);
 }
 
 void Day3::runPart2()
@@ -127,7 +127,7 @@ void Day3::processInput (const std::vector<std::string>& contentLines, std::vect
                 {
                     char a[valid_character_count + 1];
 
-                    std::memcpy (&a, &scratchBuffer, sizeof(char) * valid_character_count + 1);
+                    std::memcpy (&a, &scratchBuffer, sizeof (char) * valid_character_count + 1);
                     const std::string valueToCheck = std::string (a);
 
                     const size_t startIndex = valueToCheck.find ('(');
