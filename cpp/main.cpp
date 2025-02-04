@@ -5,7 +5,6 @@
 
 int main()
 {
-    printf ("hello world\n");
     Day1 day1;
 
     day1.runPart1();

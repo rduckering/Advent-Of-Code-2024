@@ -3,17 +3,16 @@
 
 #include <cstdio>
 #include <string>
+#include <iostream>
 
 Day3::Day3()
 {
-    printf ("Day 3\n");
+    std::cout << "Day 3" << std::endl;
 
     std::filesystem::path contentPath = "/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_3.txt";
     const auto lines = Utils::getContentLines (contentPath);
 
     processInput (lines, validInstructions);
-
-    printf("");
 }
 
 void Day3::runPart1()
@@ -35,7 +34,7 @@ void Day3::runPart1()
         }
     }
 
-    printf ("Sum: %i\n", sum);
+    std::cout << "Sum: " << sum << std::endl;
 }
 
 void Day3::runPart2()
@@ -72,7 +71,7 @@ void Day3::runPart2()
         }
     }
 
-    printf("Sum: %i\n", sum);
+    std::cout << "Sum: " << sum << std::endl;
 }
 
 bool isWord (const std::array<char, 12>& buffer, const char* word)

@@ -7,7 +7,7 @@
 
 Day1::Day1()
 {
-    printf ("Day 1\n");
+    std::cout << "Day 1" << std::endl;
 
     std::filesystem::path contentPath = "/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_1.txt";
 

@@ -9,7 +9,7 @@
 
 Day2::Day2()
 {
-    printf ("Day 2\n");
+    std::cout << "Day 2" << std::endl;
 
     std::filesystem::path contentPath = "/Users/reubenduckering/Documents/Personal Repo/Advent-Of-Code-2024/files/day_2.txt";
     const auto lines = Utils::getContentLines (contentPath);
@@ -35,7 +35,7 @@ void Day2::runPart1()
     for (const auto& level : levels)
         safeLevels += static_cast<int> (sequencePassed (level));
 
-    printf ("Safe levels: %i\n", safeLevels);
+    std::cout << "Safe levels: " << safeLevels << std::endl;
 }
 
 void Day2::runPart2()
@@ -82,7 +82,7 @@ void Day2::runPart2()
             ++safeLevels;
     }
 
-    printf ("Safe levels: %i\n", safeLevels);
+    std::cout << "Safe levels: " << safeLevels << std::endl;
 }
 
 bool Day2::sequencePassed (const vector<int>& level)
